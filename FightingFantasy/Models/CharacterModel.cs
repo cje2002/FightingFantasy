@@ -1,71 +1,64 @@
-﻿using FightingFantasy.Commands;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace FightingFantasy.Models
 {
-    public class CharacterModel : INotifyPropertyChanged
+    public class CharacterModel : ICharacterModel
     {
-        private string name = "jsjsdjsiddjio";
+        private string name;
         private int luck;
         private int stamina;
         private int skill;
 
+        public CharacterModel()
+        {
+            this.GenerateCharacter();
+        }
+
         public string Name
         {
-            get => name; 
+            get => name;
             set
             {
                 name = value;
-                this.PropertyChanged(this, new PropertyChangedEventArgs("Name"));
+                this.OnPropertyChanged("Name");
             }
         }
         public int Luck
         {
-            get => luck; 
+            get => luck;
             set
             {
                 luck = value;
-                this.PropertyChanged(this, new PropertyChangedEventArgs("Luck"));
+                this.OnPropertyChanged("Luck");
             }
         }
         public int Stamina
         {
-            get => stamina; 
+            get => stamina;
             set
             {
                 stamina = value;
-                this.PropertyChanged(this, new PropertyChangedEventArgs("Stamina"));
+                this.OnPropertyChanged("Stamina");
             }
         }
         public int Skill
         {
-            get => skill; 
+            get => skill;
             set
             {
                 skill = value;
-                this.PropertyChanged(this, new PropertyChangedEventArgs("Skill"));
+                this.OnPropertyChanged("Skill");
             }
         }
-
-        public ICommand GenerateCharacterCommand { get; set; }
-
-        public CharacterModel()
-        {
-            this.GenerateCharacterCommand = new RelayCommand(() =>
-            {
-                this.GenerateCharacter();
-            });
-         }
 
         public void GenerateCharacter()
         {
             Random random = new Random();
-            this.Luck = random.Next(1, 6) + 6;
-            this.Skill = random.Next(1, 6) + 6;
-            this.Stamina = random.Next(1, 6) + 6;
+            this.Luck = random.Next(1, 7) + 6;
+            this.Skill = random.Next(1, 7) + 6;
+            this.Stamina = random.Next(1, 7) + 6;
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };

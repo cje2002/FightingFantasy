@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="FightingFantasy.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FightingFantasy.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:panels="using:FightingFantasy.Panels"
+    xmlns:converters="using:FightingFantasy.Converters"
+    xmlns:characterview="using:FightingFantasy.Views.CharacterView">
+
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Page.Resources>
+
+    <Page.DataContext>
+        <local:MainPageViewModel x:Name="MainPageViewModel"/>
+    </Page.DataContext>
+
+    <Grid>
+        <panels:StartScreen 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Visibility="{Binding Path=MainPageModel.IsStartScreenVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"/>
+        <characterview:CharacterView 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Visibility="{Binding Path=MainPageModel.IsNewCharacterScreenVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"/>
+    </Grid>
+</Page>

@@ -2,12 +2,11 @@
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace FightingFantasy.Panels
+namespace FightingFantasy.Views.CharacterView
 {
-    public sealed partial class StartScreen : UserControl
+    public sealed partial class CharacterView : UserControl
     {
-
-        public StartScreen()
+        public CharacterView()
         {
             this.InitializeComponent();
         }

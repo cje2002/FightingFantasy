@@ -120,15 +120,21 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="IoC\RepositoriesInstaller.cs" />
+    <Compile Include="IoC\WindsorContainerFactory.cs" />
+    <Compile Include="Models\IIsSingleton.cs" />
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Models\CharacterModel.cs" />
+    <Compile Include="Models\ICharacterModel.cs" />
+    <Compile Include="Models\IMainPageModel.cs" />
     <Compile Include="Models\MainPageModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="Controls\NewCharacter.xaml.cs">
-      <DependentUpon>NewCharacter.xaml</DependentUpon>
+    <Compile Include="Views\CharacterView\CharacterViewModel.cs" />
+    <Compile Include="Views\MainPageViewModel.cs" />
+    <Compile Include="Views\CharacterView\CharacterView.xaml.cs">
+      <DependentUpon>CharacterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\StartScreen.xaml.cs">
       <DependentUpon>StartScreen.xaml</DependentUpon>
@@ -155,11 +161,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\NewCharacter.xaml">
+    <Page Include="Views\CharacterView\CharacterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,6 +175,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Castle.Windsor">
+      <Version>5.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
