@@ -20,6 +20,9 @@
     </Page.DataContext>
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/background.png"/>
+        </Grid.Background>
         <panels:StartScreen 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 

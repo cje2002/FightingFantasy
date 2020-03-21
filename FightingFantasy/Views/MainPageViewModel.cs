@@ -22,8 +22,7 @@ namespace FightingFantasy.Views
 
             StartCommand = new RelayCommand(() =>
             {
-                this.mainPageModel.IsStartScreenVisible = false;
-                this.mainPageModel.IsNewCharacterScreenVisible = true;
+                mainPageModel.ShowNewCharacterScreen();
             });
 
             QuitCommand = new RelayCommand(() =>

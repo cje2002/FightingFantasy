@@ -45,5 +45,16 @@ namespace FightingFantasy.Models
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void ShowNewCharacterScreen()
+        {
+            this.IsStartScreenVisible = false;
+            this.IsNewCharacterScreenVisible = true;
+        }
+
+        public void ShowStartScreen()
+        {
+            this.IsStartScreenVisible = true;
+            this.IsNewCharacterScreenVisible = false;
+        }
     }
 }

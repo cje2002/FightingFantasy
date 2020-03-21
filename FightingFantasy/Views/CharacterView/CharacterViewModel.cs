@@ -10,9 +10,15 @@ namespace FightingFantasy.Views.CharacterView
     {
         private readonly ICharacterModel characterModel;
 
+        private readonly IMainPageModel mainPageModel ;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand GenerateCharacterCommand { get; set; }
+
+        public ICommand BackCommand { get; set; }
+
+        public ICommand StartCommand { get; set; }
 
         public ICharacterModel CharacterModel => characterModel;
 
@@ -22,9 +28,16 @@ namespace FightingFantasy.Views.CharacterView
             this.characterModel = WindsorContainerFactory.Container.Resolve<ICharacterModel>();
             this.characterModel.PropertyChanged += CharacterModel_PropertyChanged;
 
+            this.mainPageModel = WindsorContainerFactory.Container.Resolve<IMainPageModel>();
+
             GenerateCharacterCommand = new RelayCommand(() =>
             {
                 characterModel.GenerateCharacter();
+            });
+
+            BackCommand = new RelayCommand(() =>
+            {
+                mainPageModel.ShowStartScreen();
             });
         }
 

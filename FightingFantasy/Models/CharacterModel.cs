@@ -58,7 +58,7 @@ namespace FightingFantasy.Models
             Random random = new Random();
             this.Luck = random.Next(1, 7) + 6;
             this.Skill = random.Next(1, 7) + 6;
-            this.Stamina = random.Next(1, 7) + 6;
+            this.Stamina = random.Next(1, 7) + 12;
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };

@@ -13,7 +13,7 @@
 
     <Grid>
 
-        <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" Width="619" Height="700">
+        <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" Width="619" Height="700" CornerRadius="10,10,10,10">
             <TextBox x:Name="nameTextBox" 
                      Header="Name:" 
                      Text="{x:Bind Path=CharacterViewModel.CharacterModel.Name}" 
@@ -53,11 +53,17 @@
                     Height="62" Width="300" 
                     FocusVisualPrimaryBrush="{x:Null}" 
                     Foreground="Black" Background="#FFBB0000"
-                    Margin="0,20,0,0" 
+                    Margin="0,40,0,0" 
                     Command="{x:Bind Path=CharacterViewModel.GenerateCharacterCommand}"
                     FontFamily="Old English Text MT" 
                     HorizontalAlignment="Center"
-                    FontSize="30"/>
+                    FontSize="30" CornerRadius="10,10,10,10"/>
+            
+            <RelativePanel Height="100" x:Name="buttonPanel" Margin="25,40,25,40" >
+                <Button x:Name="button1" Content="Back" Height="86" Width="150" RenderTransformOrigin="0.633,0.767"  RelativePanel.AlignLeftWithPanel="True" FontFamily="Old English Text MT" FontSize="30" Background="#FF2BE5F7" CornerRadius="10,10,10,10"
+                        Command="{x:Bind Path=CharacterViewModel.BackCommand}"/>
+                <Button x:Name="button2" Content="Continue" Height="86" Width="150" RenderTransformOrigin="0.633,0.767" HorizontalAlignment="Left" RelativePanel.AlignRightWithPanel="True" FontSize="30" FontFamily="Old English Text MT" Background="#FF06B215" CornerRadius="10,10,10,10"/>
+            </RelativePanel>
         </StackPanel>
 
     </Grid>

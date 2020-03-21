@@ -8,7 +8,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
+    <Grid Background="#3FFFFFFF">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button x:Name="startButton" 
                     Content="Start" 
@@ -16,14 +16,14 @@
                     FontSize="72" 
                     Background="{x:Null}" 
                     HorizontalAlignment="Center"
-                    Command="{Binding StartCommand}"/>
+                    Command="{Binding StartCommand}" CornerRadius="10,10,10,10"/>
             <Button x:Name="quitButton" 
                     Content="Quit" 
                     FontFamily="Old English Text MT" 
                     FontSize="72" 
                     Background="{x:Null}" 
                     HorizontalAlignment="Center"
-                    Command="{Binding QuitCommand}"/>
+                    Command="{Binding QuitCommand}" CornerRadius="10,10,10,10"/>
         </StackPanel>
     </Grid>
 </UserControl>
